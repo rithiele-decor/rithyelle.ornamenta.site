@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Rithy-Decor | Decoração de Eventos </title>
+    <!-- Google Fonts: Poppins + Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(145deg, #fff5f8 0%, #ffe4ed 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- CABEÇALHO VIP - ROSA SUAVE --- */
+        .top-header {
+            width: 100%;
+            background: rgba(30, 15, 22, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(240, 98, 146, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-bottom: 2px solid rgba(240, 98, 146, 0.6);
+            padding: 30px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s;
+        }
+
+        .empresa-nome {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: 6px;
+            background: linear-gradient(135deg, #FFD9E6 0%, #F9A8D4 30%, #F06292 70%, #F48FB1 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 15px rgba(240, 98, 146, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .empresa-nome i {
+            font-size: 4.2rem;
+            color: #F48FB1;
+            filter: drop-shadow(0 0 10px rgba(240, 98, 146, 0.6));
+            transition: transform 0.2s;
+        }
+
+        .empresa-nome i:hover {
+            transform: scale(1.08);
+        }
+
+        .tagline {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #FFE0F0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            display: inline-block;
+            padding: 8px 32px;
+            border-radius: 60px;
+            margin-top: 15px;
+            border: 1px solid rgba(240, 98, 146, 0.5);
+            text-transform: uppercase;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 850px) {
+            .empresa-nome { font-size: 3.6rem; gap: 12px; }
+            .empresa-nome i { font-size: 3rem; }
+            .tagline { font-size: 1rem; padding: 6px 24px; }
+            .top-header { padding: 20px 15px; }
+        }
+
+        @media (max-width: 550px) {
+            .empresa-nome { font-size: 2.4rem; letter-spacing: 2px; }
+            .empresa-nome i { font-size: 2rem; }
+            .tagline { font-size: 0.75rem; padding: 4px 16px; }
+        }
+
+        /* --- CAPA SEM OVERLAY, APENAS IMAGEM PURA --- */
+        .capa {
+            width: 100%;
+            height: 560px;
+            background-image: url('capai.jpg');
+            background-size: cover;
+            background-position: center 40%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .capa-texto {
+            position: relative;
+            color: white;
+            max-width: 800px;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            border-radius: 60px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            animation: fadeInUp 0.8s ease;
+            z-index: 2;
+            border: 1px solid rgba(240, 98, 146, 0.4);
+        }
+
+        /* --- ANIMAÇÃO ABAIXO DA CAPA (tema rosa) --- */
+        .animacao-abaixo {
+            width: 100%;
+            background: linear-gradient(120deg, #fff0f5, #ffe4ed);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            border-bottom: 1px solid rgba(240, 98, 146, 0.4);
+            border-top: 1px solid rgba(240, 98, 146, 0.2);
+            box-shadow: 0 10px 25px rgba(240, 98, 146, 0.05);
+        }
+
+        .animated-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .magic-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #b34167;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 14px 36px;
+            border-radius: 80px;
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            letter-spacing: 1px;
+            animation: pulseGlow 2.2s infinite;
+            border: 1px solid rgba(240, 98, 146, 0.5);
+            box-shadow: 0 5px 20px rgba(240, 98, 146, 0.15);
+        }
+
+        .magic-text i {
+            font-size: 2rem;
+            color: #e8436e;
+            animation: bounceHeart 1.2s infinite alternate;
+        }
+
+        .floating-icons {
+            display: flex;
+            gap: 28px;
+        }
+
+        .floating-icons i {
+            font-size: 2.5rem;
+            color: #d81b60;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            animation: floatIcon 2.2s infinite ease-in-out;
+            transition: 0.2s;
+        }
+
+        .floating-icons i:nth-child(2) { animation-delay: 0.2s; }
+        .floating-icons i:nth-child(3) { animation-delay: 0.4s; }
+        .floating-icons i:nth-child(4) { animation-delay: 0.6s; }
+        .floating-icons i:nth-child(5) { animation-delay: 0.8s; }
+
+        .scroll-animated {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #ad1457;
+            background: rgba(255,250,240,0.8);
+            border-radius: 100px;
+            padding: 8px 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideLeftRight 3s infinite;
+            border: 1px solid rgba(240, 98, 146, 0.5);
+        }
+
+        /* Keyframes ajustados para rosa */
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(240,98,146,0.2); background: rgba(255,255,255,0.7);}
+            50% { transform: scale(1.02); box-shadow: 0 8px 30px rgba(240,98,146,0.5); background: rgba(255,245,250,0.9); border-color: #f48fb1;}
+            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(240,98,146,0.2); background: rgba(255,255,255,0.7);}
+        }
+        @keyframes bounceHeart {
+            0% { transform: translateY(0px) scale(1); }
+            100% { transform: translateY(-8px) scale(1.1); }
+        }
+        @keyframes floatIcon {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes slideLeftRight {
+            0% { transform: translateX(0px); opacity: 0.7; }
+            50% { transform: translateX(12px); opacity: 1; }
+            100% { transform: translateX(0px); opacity: 0.7; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- SEÇÃO FOTO DA PROFISSIONAL (NOVO) --- */
+        .foto-profissional {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 30px auto;
+            text-align: center;
+        }
+
+        .foto-card {
+            background: rgba(255, 240, 245, 0.6);
+            backdrop-filter: blur(16px);
+            border-radius: 60px;
+            padding: 30px 40px;
+            border: 1px solid rgba(240, 98, 146, 0.4);
+            box-shadow: 0 25px 45px rgba(240, 98, 146, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 35px;
+            transition: all 0.3s;
+        }
+
+        .foto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 50px rgba(240, 98, 146, 0.2);
+            border-color: #f48fb1;
+        }
+
+        .foto-imagem {
+            flex-shrink: 0;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #f48fb1;
+            box-shadow: 0 15px 30px rgba(240, 98, 146, 0.3);
+            transition: transform 0.3s;
+            background: #fff0f5;
+        }
+
+        .foto-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .foto-imagem:hover img {
+            transform: scale(1.05);
+        }
+
+        .foto-descricao {
+            flex: 1;
+            text-align: left;
+        }
+
+        .foto-descricao h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #ad1457;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .foto-descricao h3 i {
+            color: #f06292;
+            font-size: 1.8rem;
+        }
+
+        .foto-descricao p {
+            font-size: 1.1rem;
+            color: #5a2e40;
+            line-height: 1.5;
+        }
+
+        .assinatura {
+            font-style: italic;
+            margin-top: 12px;
+            color: #d46b8e;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .foto-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 25px;
+            }
+            .foto-descricao {
+                text-align: center;
+            }
+            .foto-imagem {
+                width: 150px;
+                height: 150px;
+            }
+            .foto-descricao h3 {
+                justify-content: center;
+                font-size: 1.8rem;
+            }
+        }
+
+        /* --- GALERIA LUXUOSA (rosada) --- */
+        .galeria {
+            width: 100%;
+            max-width: 1300px;
+            padding: 40px 40px 50px;
+            margin: 0 auto;
+        }
+
+        .sobre-profissional {
+            background: rgba(255, 240, 245, 0.7);
+            backdrop-filter: blur(16px);
+            border-radius: 70px;
+            padding: 35px 50px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(240, 98, 146, 0.4);
+            box-shadow: 0 25px 45px rgba(240, 98, 146, 0.1);
+            text-align: center;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sobre-profissional p {
+            font-size: 1.5rem;
+            color: #4a1a2c;
+            font-weight: 500;
+            line-height: 1.6;
+            text-shadow: 0 1px 2px rgba(255,255,240,0.6);
+        }
+
+        .sobre-profissional p i {
+            color: #f06292;
+            font-size: 1.8rem;
+            margin: 0 6px;
+        }
+
+        .galeria h2 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            display: inline-block;
+            border-bottom: 4px solid #f48fb1;
+            padding-bottom: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #b34167, #f06292);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .grid-galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .card-tema {
+            background: rgba(255, 240, 245, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 45px;
+            overflow: hidden;
+            box-shadow: 0 25px 40px rgba(240, 98, 146, 0.15), 0 0 0 1px rgba(240, 98, 146, 0.3) inset;
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            padding: 24px;
+            border: 1px solid rgba(255,255,240,0.7);
+        }
+
+        .card-tema:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 40px 60px rgba(240, 98, 146, 0.35), 0 0 0 2px #f48fb1 inset;
+            background: rgba(255, 245, 250, 0.8);
+        }
+
+        .info-tema {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .info-tema h3 {
+            font-size: 2rem;
+            color: #ad1457;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .info-tema p {
+            color: #4a2a38;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .miniaturas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .miniaturas img {
+            width: 100%;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.25s;
+            border: 2px solid rgba(240, 98, 146, 0.3);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .miniaturas img:hover {
+            transform: scale(1.05);
+            border-color: #f06292;
+            box-shadow: 0 12px 20px rgba(240, 98, 146, 0.4);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-conteudo {
+            max-width: 85%;
+            max-height: 85%;
+            border-radius: 32px;
+            box-shadow: 0 0 40px rgba(240, 98, 146, 0.5);
+            border: 3px solid #f48fb1;
+        }
+
+        .fechar {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #ffb6c1;
+            font-size: 52px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            background: rgba(0,0,0,0.5);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .fechar:hover {
+            color: #f06292;
+            transform: scale(1.1);
+            background: rgba(240,98,146,0.3);
+        }
+
+        /* Orçamento com tema rosa */
+        .orcamento-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto 80px;
+            background: rgba(255, 245, 250, 0.6);
+            backdrop-filter: blur(18px);
+            padding: 60px 50px;
+            border-radius: 90px;
+            box-shadow: 0 35px 55px rgba(240, 98, 146, 0.15), 0 0 0 1px rgba(240, 98, 146, 0.4) inset;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 45px;
+            border: 1px solid rgba(240, 98, 146, 0.5);
+        }
+
+        .mensagem-50 {
+            flex: 1 1 320px;
+        }
+
+        .mensagem-50 h3 {
+            font-size: 2.7rem;
+            color: #ad1457;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .mensagem-50 h3 i {
+            color: #f06292;
+            font-size: 3rem;
+        }
+
+        .mensagem-50 p {
+            font-size: 1.45rem;
+            color: #2c3e4e;
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: rgba(255, 245, 250, 0.7);
+            padding: 16px 28px;
+            border-radius: 70px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(240, 98, 146, 0.4);
+        }
+
+        .mensagem-50 p i {
+            color: #f06292;
+            font-size: 2rem;
+            width: 36px;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, rgba(255,245,250,0.8), rgba(240,98,146,0.2));
+            backdrop-filter: blur(12px);
+            color: #ad1457;
+            padding: 26px 60px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 22px;
+            box-shadow: 0 25px 45px rgba(240, 98, 146, 0.4), 0 0 0 2px rgba(255,240,245,0.9) inset;
+            transition: 0.35s;
+            border: 1px solid #ffe0f0;
+            letter-spacing: 1px;
+        }
+
+        .btn-whatsapp i {
+            font-size: 3rem;
+            color: #25D366;
+            filter: drop-shadow(0 0 8px rgba(37,211,102,0.6));
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            background: rgba(240, 98, 146, 0.25);
+            box-shadow: 0 35px 55px rgba(240, 98, 146, 0.6), 0 0 0 3px #ffe0f0 inset;
+            color: #880e4f;
+        }
+
+        @media (max-width: 900px) {
+            .capa { height: 450px; }
+            .capa-texto { font-size: 1.3rem; padding: 12px 24px; }
+            .magic-text { font-size: 1.4rem; padding: 10px 24px; }
+            .floating-icons i { font-size: 2rem; gap: 20px; }
+            .sobre-profissional p { font-size: 1.2rem; }
+            .orcamento-section { flex-direction: column; text-align: center; margin: 30px 25px; padding: 40px 30px; }
+            .btn-whatsapp { font-size: 1.8rem; padding: 20px 45px; }
+            .galeria h2 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 550px) {
+            .galeria { padding: 30px 20px; }
+            .miniaturas img { height: 70px; }
+            .btn-whatsapp { font-size: 1.5rem; padding: 16px 32px; gap: 12px; }
+            .mensagem-50 p { font-size: 1.2rem; padding: 12px 18px; }
+            .sobre-profissional { padding: 20px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-header">
+        <div class="empresa-nome">
+            RITHY-DECOR
+            <i class="fas fa-rose"></i>
+        </div>
+    </div>
+
+    <div class="capa">
+    
+          
+        </div>
+    </div>
+
+    <div class="animacao-abaixo">
+        <div class="animated-content">
+            <div class="magic-text">
+                <i class="fas fa-heart"></i> Elegância em cada detalhe <i class="fas fa-star"></i>
+            </div>
+            <div class="floating-icons">
+                <i class="fas fa-champagne-glasses"></i>
+                <i class="fas fa-balloon"></i>
+                <i class="fas fa-gift"></i>
+                <i class="fas fa-music"></i>
+                <i class="fas fa-cake-candles"></i>
+            </div>
+        </div>
+        
+        </div>
+    </div>
+
+    <section class="galeria">
+        <!-- NOVA SEÇÃO: FOTO DA PROFISSIONAL (acima do texto sobre) -->
+        <div class="foto-profissional">
+            <div class="foto-card">
+                <div class="foto-imagem">
+                    <!-- Substitua 'profissional.jpg' pelo caminho da sua foto -->
+                    <img src="profissional.jpeg" alt="Rithielle - Decoradora de Eventos">
+                </div>
+                <div class="foto-descricao">
+                    <h3><i class="fas fa-crown"></i> Rithielle</h3>
+                    <p>✨Sou Rithielle, há 10 anos trabalho com decoração de festas. Ao longo dessa jornada tive o privilégio de fazer parte de muitos momentos especiais na vida das pessoas. cada festa que preparo carrega dedicação, criatividade e muito amor. Sou extremamente realizada por cada trabalho entregue, pois sei que, através da decoração, ajudo a transformar sonhos em memórias inesquecíveis. ✨</p>
+                    <div class="assinatura">
+                        <i class="fas fa-feather-alt"></i> Assinatura Rithy-Decor
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+        </div>
+
+        <div style="text-align: center;">
+            <h2>KITS DISPONÍVEIS</h2>
+        </div>
+        <div class="grid-galeria" id="galeriaContainer"></div>
+    </section>
+
+    <div id="modal" class="modal" onclick="fecharModalFora(event)">
+        <span class="fechar" onclick="fecharModal()">&times;</span>
+        <img class="modal-conteudo" id="modal-img" src="" alt="Imagem ampliada">
+    </div>
+
+    <div class="orcamento-section">
+        <div class="mensagem-50">
+            <h3><i class="fas fa-gem"></i> Orçamento VIP</h3>
+            <p><i class="fas fa-check-circle"></i> <strong>50% de entrada 50% Na entrega/retirada</strong>  </p>
+            <p><i class="fas fa-calendar-alt"></i> Reserva com antecedência no minimo (30 dias)</p>
+            <p><i class="fas fa-trophy"></i> Pacotes personalizados de acordo com sua necessidade.</p>
+            <p><i class="fas fa-credit-card"></i> Pagamento: PIX ou Espécie</p>
+        </div>
+        <div class="botao-orcamento">
+            <a href="https://wa.me/5587991956088?text=Olá!%20Gostaria%20de%20um%20orçamento%20VIP%20para%20meu%20evento%20com%20a%20Rithy-Decor." class="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i> Quero um orçamento
+            </a>
+        </div>
+    </div>
+    <p style="text-align: center; margin-bottom: 30px; color: #ad1457; font-weight: 400;">CRIADO POR ACR DEVELOPER</p>
+
+    <script>
+        const temas = [
+            {
+                nome: "Kits Adulto",
+                descricao: "Sofisticação e identidade visual marcante.",
+                imagens: ["adulto1.jpeg", "adulto2.jpeg"]
+            },
+            {
+                nome: "Kits Infantis Masculino",
+                descricao: "Aventura e diversão com estilo.",
+                imagens: ["naruto.jpeg", "homen.jpeg", "mario.jpeg", "cavalo.jpeg", "dino.jpeg", "safari.jpeg" ,"mundobita.jpeg","universo.jpeg","cebolinha.jpeg"]
+                
+            },
+            {
+                nome: "Kits Infantis Feminino",
+                descricao: "Encantamento e delicadeza em cada detalhe.",
+                imagens: ["sofia.jpeg", "minirosa.jpeg", "minieverm.jpeg", "galinha.jpeg"]
+            },
+            {
+                nome: "Mini Festa na Mesa",
+                descricao: "Decorar não é sobre encher espaços, e sobre dar vida os sonhos de alguem.",
+                imagens: ["felizniver.jpeg", "minipool.jpeg", "mari.jpeg","tunes.jpeg","bob sponja.jpeg","kiko.jpeg","revelacao.jpeg","arlekina.jpeg","circo.jpeg","tempovoa.jpeg"]
+            }, 
+            {
+                nome: "Meus Trabalhos",
+                descricao: "Decoração personalizada; Cada detalhe conta uma história",
+                imagens: [
+                    "bati1.jpeg", "adulto22.jpeg", "motoc.jpeg", "bita12.jpeg", "hello kit.jpeg",
+                    "jardim.jpeg", "flores.jpeg", "anjo.jpeg", "adultohomem.jpeg", "ursinhopool.jpeg",
+                    "batizadoluxo.jpeg", "batiadulto.jpeg", "bati33.jpeg", "15anosazul.jpeg",
+                ]
+            }
+        ];
+
+        function carregarGaleria() {
+            const container = document.getElementById('galeriaContainer');
+            container.innerHTML = '';
+            temas.forEach(tema => {
+                const card = document.createElement('div');
+                card.className = 'card-tema';
+                const infoDiv = document.createElement('div');
+                infoDiv.className = 'info-tema';
+                infoDiv.innerHTML = `<h3>${tema.nome}</h3><p>${tema.descricao}</p>`;
+                card.appendChild(infoDiv);
+                const miniaturasDiv = document.createElement('div');
+                miniaturasDiv.className = 'miniaturas';
+                tema.imagens.forEach(imgSrc => {
+                    const img = document.createElement('img');
+                    img.src = imgSrc;
+                    img.alt = tema.nome;
+                    img.onclick = (e) => {
+                        e.stopPropagation();
+                        abrirModal(imgSrc);
+                    };
+                    miniaturasDiv.appendChild(img);
+                });
+                card.appendChild(miniaturasDiv);
+                container.appendChild(card);
+            });
+        }
+
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        function abrirModal(src) {
+            modal.style.display = 'flex';
+            modalImg.src = src;
+        }
+        function fecharModal() {
+            modal.style.display = 'none';
+        }
+        function fecharModalFora(event) {
+            if (event.target === modal) fecharModal();
+        }
+
+        window.onload = carregarGaleria;
+    </script>
+</body>
+</html>
