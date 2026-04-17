@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Rithy-Decor | Decoração de Eventos </title>
+    <title>Rithy-Decor | Decoração de Eventos - Carrinho e Pedido</title>
     <!-- Google Fonts: Poppins + Playfair Display -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome 6 -->
@@ -453,7 +453,7 @@
             box-shadow: 0 12px 20px rgba(240, 98, 146, 0.4);
         }
 
-        /* Modal */
+        /* Modal (com botão de selecionar) */
         .modal {
             display: none;
             position: fixed;
@@ -470,10 +470,36 @@
 
         .modal-conteudo {
             max-width: 85%;
-            max-height: 85%;
+            max-height: 65vh;
             border-radius: 32px;
             box-shadow: 0 0 40px rgba(240, 98, 146, 0.5);
             border: 3px solid #f48fb1;
+        }
+
+        .modal-footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-select-modal {
+            background: linear-gradient(135deg, #f06292, #d81b60);
+            border: none;
+            padding: 12px 32px;
+            border-radius: 60px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
+            margin-top: 12px;
+        }
+
+        .btn-select-modal:hover {
+            transform: scale(1.03);
+            background: #ad1457;
         }
 
         .fechar {
@@ -499,6 +525,138 @@
             color: #f06292;
             transform: scale(1.1);
             background: rgba(240,98,146,0.3);
+        }
+
+        /* CARRINHO FLUTUANTE */
+        .cart-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #d81b60;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px rgba(216,27,96,0.5);
+            cursor: pointer;
+            z-index: 200;
+            transition: 0.2s;
+            border: 2px solid #fff0f5;
+        }
+
+        .cart-icon span {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: gold;
+            color: #ad1457;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 420px;
+            height: 100vh;
+            background: rgba(255, 240, 245, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: -8px 0 30px rgba(0,0,0,0.2);
+            z-index: 300;
+            transition: 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            border-left: 3px solid #f48fb1;
+        }
+
+        .cart-panel.open {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 25px;
+            background: #f8bbd0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #880e4f;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            background: white;
+            border-radius: 30px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #f48fb1;
+        }
+
+        .cart-item-info h4 {
+            margin-bottom: 5px;
+            color: #ad1457;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #d81b60;
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            padding: 20px;
+            border-top: 2px dashed #f48fb1;
+            text-align: center;
+        }
+
+        .btn-checkout, .btn-send-order {
+            background: #f06292;
+            border: none;
+            color: white;
+            padding: 14px;
+            width: 90%;
+            border-radius: 60px;
+            font-weight: bold;
+            margin-top: 15px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .form-checkout {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-checkout input, .form-checkout select {
+            padding: 14px;
+            border-radius: 50px;
+            border: 1px solid #f48fb1;
+            background: rgba(255,255,240,0.9);
+            font-size: 1rem;
         }
 
         /* Orçamento com tema rosa */
@@ -598,6 +756,7 @@
             .orcamento-section { flex-direction: column; text-align: center; margin: 30px 25px; padding: 40px 30px; }
             .btn-whatsapp { font-size: 1.8rem; padding: 20px 45px; }
             .galeria h2 { font-size: 2.5rem; }
+            .cart-panel { width: 100%; right: -100%; }
         }
 
         @media (max-width: 550px) {
@@ -619,9 +778,7 @@
     </div>
 
     <div class="capa">
-    
-          
-        </div>
+        
     </div>
 
     <div class="animacao-abaixo">
@@ -637,16 +794,12 @@
                 <i class="fas fa-cake-candles"></i>
             </div>
         </div>
-        
-        </div>
     </div>
 
     <section class="galeria">
-        <!-- NOVA SEÇÃO: FOTO DA PROFISSIONAL (acima do texto sobre) -->
         <div class="foto-profissional">
             <div class="foto-card">
                 <div class="foto-imagem">
-                    <!-- Substitua 'profissional.jpg' pelo caminho da sua foto -->
                     <img src="profissional.jpeg" alt="Rithielle - Decoradora de Eventos">
                 </div>
                 <div class="foto-descricao">
@@ -659,24 +812,24 @@
             </div>
         </div>
 
-    
-        </div>
-
         <div style="text-align: center;">
             <h2>KITS DISPONÍVEIS</h2>
         </div>
         <div class="grid-galeria" id="galeriaContainer"></div>
     </section>
 
-    <div id="modal" class="modal" onclick="fecharModalFora(event)">
+    <div id="modal" class="modal">
         <span class="fechar" onclick="fecharModal()">&times;</span>
-        <img class="modal-conteudo" id="modal-img" src="" alt="Imagem ampliada">
+        <div style="background: rgba(255,245,250,0.95); border-radius: 48px; padding: 20px; max-width: 90%; text-align: center;">
+            <img class="modal-conteudo" id="modal-img" src="" alt="Imagem ampliada">
+            <div class="modal-footer" id="modalFooter"></div>
+        </div>
     </div>
 
     <div class="orcamento-section">
         <div class="mensagem-50">
             <h3><i class="fas fa-gem"></i> Orçamento VIP</h3>
-            <p><i class="fas fa-check-circle"></i> <strong>50% de entrada 50% Na entrega/retirada</strong>  </p>
+            <p><i class="fas fa-check-circle"></i> <strong>50% de entrada 50% Na entrega/retirada</strong></p>
             <p><i class="fas fa-calendar-alt"></i> Reserva com antecedência no minimo (30 dias)</p>
             <p><i class="fas fa-trophy"></i> Pacotes personalizados de acordo com sua necessidade.</p>
             <p><i class="fas fa-credit-card"></i> Pagamento: PIX ou Espécie</p>
@@ -689,40 +842,156 @@
     </div>
     <p style="text-align: center; margin-bottom: 30px; color: #ad1457; font-weight: 400;">CRIADO POR ACR DEVELOPER</p>
 
+    <!-- CARRINHO FLUTUANTE -->
+    <div class="cart-icon" id="cartIcon">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cartCount">0</span>
+    </div>
+
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <span><i class="fas fa-heart"></i> Meu Carrinho</span>
+            <i class="fas fa-times" id="closeCart" style="cursor:pointer;"></i>
+        </div>
+        <div id="cartItemsContainer" class="cart-items">
+            <p style="text-align:center;">Seu carrinho está vazio</p>
+        </div>
+        <div id="cartFooter" class="cart-total">
+            <button id="checkoutBtn" class="btn-checkout">📋 Finalizar Pedido</button>
+        </div>
+    </div>
+
     <script>
         const temas = [
-            {
-                nome: "Kits Adulto",
-                descricao: "Sofisticação e identidade visual marcante.",
-                imagens: ["adulto1.jpeg", "adulto2.jpeg"]
-            },
-            {
-                nome: "Kits Infantis Masculino",
-                descricao: "Aventura e diversão com estilo.",
-                imagens: ["naruto.jpeg", "homen.jpeg", "mario.jpeg", "cavalo.jpeg", "dino.jpeg", "safari.jpeg" ,"mundobita.jpeg","universo.jpeg","cebolinha.jpeg"]
-                
-            },
-            {
-                nome: "Kits Infantis Feminino",
-                descricao: "Encantamento e delicadeza em cada detalhe.",
-                imagens: ["sofia.jpeg", "minirosa.jpeg", "minieverm.jpeg", "galinha.jpeg"]
-            },
-            {
-                nome: "Mini Festa na Mesa",
-                descricao: "Decorar não é sobre encher espaços, e sobre dar vida os sonhos de alguem.",
-                imagens: ["felizniver.jpeg", "minipool.jpeg", "mari.jpeg","tunes.jpeg","bob sponja.jpeg","kiko.jpeg","revelacao.jpeg","arlekina.jpeg","circo.jpeg","tempovoa.jpeg"]
-            }, 
-            {
-                nome: "Meus Trabalhos",
-                descricao: "Decoração personalizada; Cada detalhe conta uma história",
-                imagens: [
-                    "bati1.jpeg", "adulto22.jpeg", "motoc.jpeg", "bita12.jpeg", "hello kit.jpeg",
-                    "jardim.jpeg", "flores.jpeg", "anjo.jpeg", "adultohomem.jpeg", "ursinhopool.jpeg",
-                    "batizadoluxo.jpeg", "batiadulto.jpeg", "bati33.jpeg", "15anosazul.jpeg",
-                ]
-            }
+            { nome: "Kits Adulto", descricao: "Sofisticação e identidade visual marcante.", imagens: ["adulto1.jpeg", "adulto2.jpeg"] },
+            { nome: "Kits Infantis Masculino", descricao: "Aventura e diversão com estilo.", imagens: ["naruto.jpeg", "homen.jpeg", "mario.jpeg", "cavalo.jpeg", "dino.jpeg", "safari.jpeg" ,"mundobita.jpeg","universo.jpeg","cebolinha.jpeg"] },
+            { nome: "Kits Infantis Feminino", descricao: "Encantamento e delicadeza em cada detalhe.", imagens: ["sofia.jpeg", "minirosa.jpeg", "minieverm.jpeg", "galinha.jpeg"] },
+            { nome: "Mini Festa na Mesa", descricao: "Decorar não é sobre encher espaços, e sobre dar vida os sonhos de alguem.", imagens: ["felizniver.jpeg", "minipool.jpeg", "mari.jpeg","tunes.jpeg","bob sponja.jpeg","kiko.jpeg","revelacao.jpeg","arlekina.jpeg","circo.jpeg","tempovoa.jpeg"] },
+            { nome: "Meus Trabalhos", descricao: "Decoração personalizada; Cada detalhe conta uma história", imagens: ["bati1.jpeg", "adulto22.jpeg", "motoc.jpeg", "bita12.jpeg", "hello kit.jpeg", "jardim.jpeg", "flores.jpeg", "anjo.jpeg", "adultohomem.jpeg", "ursinhopool.jpeg", "batizadoluxo.jpeg", "batiadulto.jpeg", "bati33.jpeg", "15anosazul.jpeg"] }
         ];
 
+        let carrinho = []; // { nome, descricao }
+
+        // Funções do carrinho
+        function atualizarCarrinhoUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const countSpan = document.getElementById('cartCount');
+            if (!container) return;
+            if (carrinho.length === 0) {
+                container.innerHTML = '<p style="text-align:center; padding:20px;">🛍️ Nenhum tema selecionado ainda.</p>';
+                countSpan.innerText = '0';
+                return;
+            }
+            countSpan.innerText = carrinho.length;
+            container.innerHTML = '';
+            carrinho.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <div class="cart-item-info"><h4>🎨 ${item.nome}</h4><small>${item.descricao.substring(0, 60)}</small></div>
+                    <button class="remove-item" data-index="${idx}"><i class="fas fa-trash-alt"></i></button>
+                `;
+                container.appendChild(div);
+            });
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const index = parseInt(btn.getAttribute('data-index'));
+                    carrinho.splice(index, 1);
+                    atualizarCarrinhoUI();
+                    exibirToast(`Tema removido do carrinho`);
+                    resetarFooterPadrao();
+                });
+            });
+        }
+
+        function exibirToast(msg) {
+            let toast = document.querySelector('.toast-msg');
+            if(toast) toast.remove();
+            const newToast = document.createElement('div');
+            newToast.className = 'toast-msg';
+            newToast.innerHTML = msg;
+            newToast.style.position = 'fixed';
+            newToast.style.bottom = '120px';
+            newToast.style.right = '30px';
+            newToast.style.background = '#4caf50';
+            newToast.style.color = 'white';
+            newToast.style.padding = '12px 24px';
+            newToast.style.borderRadius = '50px';
+            newToast.style.zIndex = '400';
+            newToast.style.fontWeight = 'bold';
+            document.body.appendChild(newToast);
+            setTimeout(() => newToast.remove(), 2500);
+        }
+
+        function addAoCarrinho(nomeTema, descTema) {
+            if (carrinho.some(item => item.nome === nomeTema)) {
+                exibirToast(`⚠️ "${nomeTema}" já está no carrinho!`);
+                return false;
+            }
+            carrinho.push({ nome: nomeTema, descricao: descTema });
+            atualizarCarrinhoUI();
+            exibirToast(`✅ "${nomeTema}" adicionado ao carrinho!`);
+            return true;
+        }
+
+        function resetarFooterPadrao() {
+            const footer = document.getElementById('cartFooter');
+            if(footer) footer.innerHTML = `<button id="checkoutBtn" class="btn-checkout">📋 Finalizar Pedido</button>`;
+            const newBtn = document.getElementById('checkoutBtn');
+            if(newBtn) newBtn.addEventListener('click', abrirFormularioCheckout);
+        }
+
+        function abrirFormularioCheckout() {
+            if(carrinho.length === 0) {
+                exibirToast("Seu carrinho está vazio. Adicione temas primeiro!");
+                return;
+            }
+            const footer = document.getElementById('cartFooter');
+            footer.innerHTML = `
+                <div class="form-checkout">
+                    <h4 style="color:#ad1457;">✏️ Preencha seus dados</h4>
+                    <input type="text" id="clienteNome" placeholder="Nome completo" required>
+                    <input type="text" id="clienteEndereco" placeholder="Endereço completo" required>
+                    <input type="tel" id="clienteTelefone" placeholder="WhatsApp / Telefone" required>
+                    <select id="formaPagamento">
+                        <option value="PIX">PIX</option>
+                        <option value="Espécie">Espécie</option>
+                        <option value="Transferência">Transferência</option>
+                    </select>
+                    <button id="enviarPedidoBtn" class="btn-send-order">📨 Enviar Pedido</button>
+                    <button id="voltarCarrinhoBtn" style="background:#aaa; margin-top:8px;" class="btn-send-order">↩️ Voltar</button>
+                </div>
+            `;
+            document.getElementById('enviarPedidoBtn')?.addEventListener('click', enviarPedidoWhatsApp);
+            document.getElementById('voltarCarrinhoBtn')?.addEventListener('click', resetarFooterPadrao);
+        }
+
+        function enviarPedidoWhatsApp() {
+            const nome = document.getElementById('clienteNome')?.value.trim();
+            const endereco = document.getElementById('clienteEndereco')?.value.trim();
+            const telefone = document.getElementById('clienteTelefone')?.value.trim();
+            const pagamento = document.getElementById('formaPagamento')?.value;
+            if(!nome || !endereco || !telefone) {
+                exibirToast("❌ Preencha todos os campos obrigatórios!");
+                return;
+            }
+            if(carrinho.length === 0) {
+                exibirToast("Carrinho vazio, adicione temas.");
+                return;
+            }
+            let itensTexto = carrinho.map((item, i) => `${i+1}️⃣ *${item.nome}*`).join('\n');
+            let mensagem = `🛍️ *NOVO PEDIDO RITHY-DECOR* 🛍️%0A%0A✨ *ITENS SELECIONADOS:*%0A${itensTexto}%0A%0A👤 *CLIENTE:* ${nome}%0A📍 *ENDEREÇO:* ${endereco}%0A📞 *TELEFONE:* ${telefone}%0A💳 *PAGAMENTO:* ${pagamento}%0A%0A🌟 Aguardo confirmação e valores! Obrigado por escolher a Rithy-Decor.`;
+            let numeroWhats = "5587991956088";
+            let url = `https://wa.me/${numeroWhats}?text=${mensagem}`;
+            window.open(url, '_blank');
+            carrinho = [];
+            atualizarCarrinhoUI();
+            resetarFooterPadrao();
+            document.getElementById('cartPanel')?.classList.remove('open');
+            exibirToast("✨ Pedido enviado! Em breve receberá retorno.");
+        }
+
+        // Galeria e modal com botão selecionar
         function carregarGaleria() {
             const container = document.getElementById('galeriaContainer');
             container.innerHTML = '';
@@ -741,7 +1010,7 @@
                     img.alt = tema.nome;
                     img.onclick = (e) => {
                         e.stopPropagation();
-                        abrirModal(imgSrc);
+                        abrirModalComTema(imgSrc, tema.nome, tema.descricao);
                     };
                     miniaturasDiv.appendChild(img);
                 });
@@ -750,20 +1019,47 @@
             });
         }
 
-        const modal = document.getElementById('modal');
-        const modalImg = document.getElementById('modal-img');
-        function abrirModal(src) {
+        function abrirModalComTema(imgSrc, themeName, themeDesc) {
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modal-img');
+            const modalFooter = document.getElementById('modalFooter');
+            modalImg.src = imgSrc;
+            modalFooter.innerHTML = `
+                <button class="btn-select-modal" id="selectThemeBtn"><i class="fas fa-cart-plus"></i> Selecionar este tema</button>
+            `;
             modal.style.display = 'flex';
-            modalImg.src = src;
-        }
-        function fecharModal() {
-            modal.style.display = 'none';
-        }
-        function fecharModalFora(event) {
-            if (event.target === modal) fecharModal();
+            const selectBtn = document.getElementById('selectThemeBtn');
+            if(selectBtn) {
+                const newBtn = selectBtn.cloneNode(true);
+                selectBtn.parentNode.replaceChild(newBtn, selectBtn);
+                newBtn.addEventListener('click', () => {
+                    addAoCarrinho(themeName, themeDesc);
+                    fecharModal();
+                });
+            }
         }
 
-        window.onload = carregarGaleria;
+        function fecharModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+        function fecharModalFora(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) fecharModal();
+        }
+        document.getElementById('modal').addEventListener('click', fecharModalFora);
+
+        // Controles do carrinho lateral
+        const cartIcon = document.getElementById('cartIcon');
+        const cartPanel = document.getElementById('cartPanel');
+        const closeCart = document.getElementById('closeCart');
+        cartIcon?.addEventListener('click', () => cartPanel.classList.add('open'));
+        closeCart?.addEventListener('click', () => cartPanel.classList.remove('open'));
+
+        window.onload = () => {
+            carregarGaleria();
+            atualizarCarrinhoUI();
+            resetarFooterPadrao();
+        };
     </script>
 </body>
 </html>
