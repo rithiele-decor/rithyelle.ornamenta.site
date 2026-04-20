@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Rithy-Decor | Decoração de Eventos - Seleção Profissional</title>
+    <title>Rithy-Decor | Decoração de Eventos - Produtos Individuais</title>
     <!-- Google Fonts: Poppins + Playfair Display -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* ========== SEUS ESTILOS ORIGINAIS (NENHUMA ALTERAÇÃO) ========== */
         * {
             margin: 0;
             padding: 0;
@@ -24,7 +25,6 @@
             align-items: center;
         }
 
-        /* --- CABEÇALHO VIP - ROSA SUAVE --- */
         .top-header {
             width: 100%;
             background: rgba(30, 15, 22, 0.8);
@@ -98,7 +98,6 @@
             .tagline { font-size: 0.75rem; padding: 4px 16px; }
         }
 
-        /* --- CAPA --- */
         .capa {
             width: 100%;
             height: 560px;
@@ -130,7 +129,6 @@
             border: 1px solid rgba(240, 98, 146, 0.4);
         }
 
-        /* --- ANIMAÇÃO ABAIXO DA CAPA --- */
         .animacao-abaixo {
             width: 100%;
             background: linear-gradient(120deg, #fff0f5, #ffe4ed);
@@ -212,7 +210,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- SEÇÃO FOTO DA PROFISSIONAL --- */
         .foto-profissional {
             width: 100%;
             max-width: 1000px;
@@ -316,7 +313,6 @@
             }
         }
 
-        /* --- GALERIA LUXUOSA --- */
         .galeria {
             width: 100%;
             max-width: 1300px;
@@ -416,7 +412,6 @@
             box-shadow: 0 12px 20px rgba(240, 98, 146, 0.4);
         }
 
-        /* Modal com botão de selecionar */
         .modal {
             display: none;
             position: fixed;
@@ -490,7 +485,6 @@
             background: rgba(240,98,146,0.3);
         }
 
-        /* CARRINHO FLUTUANTE PROFISSIONAL */
         .cart-icon {
             position: fixed;
             bottom: 30px;
@@ -667,7 +661,6 @@
             margin-top: 8px;
         }
 
-        /* Orçamento com tema rosa */
         .orcamento-section {
             width: 100%;
             max-width: 1200px;
@@ -797,7 +790,7 @@
     </div>
 
     <div class="capa">
-        <div class="capa-texto">Transformando sonhos em realidade</div>
+        
     </div>
 
     <div class="animacao-abaixo">
@@ -861,7 +854,6 @@
     </div>
     <p style="text-align: center; margin-bottom: 30px; color: #ad1457; font-weight: 400;">CRIADO POR ACR DEVELOPER</p>
 
-    <!-- CARRINHO FLUTUANTE -->
     <div class="cart-icon" id="cartIcon">
         <i class="fas fa-shopping-cart"></i>
         <span id="cartCount">0</span>
@@ -873,7 +865,7 @@
             <i class="fas fa-times" id="closeCart" style="cursor:pointer;"></i>
         </div>
         <div id="cartItemsContainer" class="cart-items">
-            <p style="text-align:center; padding:20px;">Nenhum tema selecionado</p>
+            <p style="text-align:center; padding:20px;">Nenhum produto selecionado</p>
         </div>
         <div id="cartFooter" class="cart-total">
             <button id="continuarBtn" class="btn-continuar" disabled>▶ Continuar</button>
@@ -881,18 +873,93 @@
     </div>
 
     <script>
-        // Lista de temas com identificação numérica (ordem das colunas)
-        const temas = [
-            { id: 1, nome: "Kits Adulto", descricao: "Sofisticação e identidade visual marcante.", imagens: ["adulto1.jpeg", "adulto2.jpeg"] },
-            { id: 2, nome: "Kits Infantis Masculino", descricao: "Aventura e diversão com estilo.", imagens: ["naruto.jpeg", "homen.jpeg", "mario.jpeg", "cavalo.jpeg", "dino.jpeg", "safari.jpeg" ,"mundobita.jpeg","universo.jpeg","cebolinha.jpeg"] },
-            { id: 3, nome: "Kits Infantis Feminino", descricao: "Encantamento e delicadeza em cada detalhe.", imagens: ["sofia.jpeg", "minirosa.jpeg", "minieverm.jpeg", "galinha.jpeg"] },
-            { id: 4, nome: "Mini Festa na Mesa", descricao: "Decorar não é sobre encher espaços, e sobre dar vida os sonhos de alguem.", imagens: ["felizniver.jpeg", "minipool.jpeg", "mari.jpeg","tunes.jpeg","bob sponja.jpeg","kiko.jpeg","revelacao.jpeg","arlekina.jpeg","circo.jpeg","tempovoa.jpeg"] },
-            { id: 5, nome: "Meus Trabalhos", descricao: "Decoração personalizada; Cada detalhe conta uma história", imagens: ["bati1.jpeg", "adulto22.jpeg", "motoc.jpeg", "bita12.jpeg", "hello kit.jpeg", "jardim.jpeg", "flores.jpeg", "anjo.jpeg", "adultohomem.jpeg", "ursinhopool.jpeg", "batizadoluxo.jpeg", "batiadulto.jpeg", "bati33.jpeg", "15anosazul.jpeg"] }
+        // ===========================================================
+        // LISTA DE PRODUTOS INDIVIDUAIS COM ID ÚNICO POR IMAGEM
+        // Cada produto tem: id, nome, descricao, imagem, categoria (agrupamento visual)
+        // ===========================================================
+        const produtosIndividuais = [
+            // Kits Adulto (id 101-102)
+            { id: 101, nome: "Adulto Luxo 1", descricao: "Sofisticação e identidade visual marcante.", imagem: "adulto1.jpeg", categoria: "Kits Adulto", catId: 1 },
+            { id: 102, nome: "Adulto Luxo 2", descricao: "Elegância e design contemporâneo.", imagem: "adulto2.jpeg", categoria: "Kits Adulto", catId: 1 },
+            
+            // Kits Infantis Masculino (id 103-111)
+            { id: 103, nome: "Naruto", descricao: "Tema do ninja mais querido, cheio de ação.", imagem: "naruto.jpeg", categoria: "Kits Infantis Masculino", catId: 2 },
+            { id: 104, nome: "Homem de Ferro", descricao: "Tecnologia e heroísmo para os pequenos.", imagem: "homen.jpeg", categoria: "Kits Infantis Masculino", catId: 2 },
+            { id: 105, nome: "Super Mario", descricao: "Aventura no mundo dos cogumelos.", imagem: "mario.jpeg", categoria: "Kits Infantis Masculino", catId: 2 },
+            { id: 106, nome: "Cavaleiros", descricao: "Festa medieval com muita diversão.", imagem: "cavalo.jpeg", categoria: "Kits Infantis Masculino", catId: 2 },
+            { id: 107, nome: "Dino Mundo", descricao: "Jurássico e cheio de aventura.", imagem: "dino.jpeg", categoria: "Kits Infantis Masculino", catId: 2 },
+            { id: 108, nome: "Safari", descricao: "Explorando a selva com animais fofos.", imagem: "safari.jpeg", categoria: "Kits Infantis Masculino", catId: 2 },
+            { id: 109, nome: "Mundo Bita", descricao: "Música e alegria com o Bita.", imagem: "mundobita.jpeg", categoria: "Kits Infantis Masculino", catId: 2 },
+            { id: 110, nome: "Universo", descricao: "Espaço sideral e astronautas.", imagem: "universo.jpeg", categoria: "Kits Infantis Masculino", catId: 2 },
+            { id: 111, nome: "Cebolinha", descricao: "Turma da Mônica - Cebolinha.", imagem: "cebolinha.jpeg", categoria: "Kits Infantis Masculino", catId: 2 },
+            
+            // Kits Infantis Feminino (id 112-115)
+            { id: 112, nome: "Sofia", descricao: "Princesa Sofia - contos de fadas.", imagem: "sofia.jpeg", categoria: "Kits Infantis Feminino", catId: 3 },
+            { id: 113, nome: "Mini Rosa", descricao: "Encantamento rosa para meninas.", imagem: "minirosa.jpeg", categoria: "Kits Infantis Feminino", catId: 3 },
+            { id: 114, nome: "Minnie Vermelha", descricao: "Minnie Mouse clássica.", imagem: "minieverm.jpeg", categoria: "Kits Infantis Feminino", catId: 3 },
+            { id: 115, nome: "Galinha Pintadinha", descricao: "Música e diversão com a Galinha.", imagem: "galinha.jpeg", categoria: "Kits Infantis Feminino", catId: 3 },
+            
+            // Mini Festa na Mesa (id 116-125)
+            { id: 116, nome: "Feliz Aniversário", descricao: "Mini mesa com tema clássico.", imagem: "felizniver.jpeg", categoria: "Mini Festa na Mesa", catId: 4 },
+            { id: 117, nome: "Mini Pool Party", descricao: "Festa na piscina em miniatura.", imagem: "minipool.jpeg", categoria: "Mini Festa na Mesa", catId: 4 },
+            { id: 118, nome: "Mari", descricao: "Tema delicado e colorido.", imagem: "mari.jpeg", categoria: "Mini Festa na Mesa", catId: 4 },
+            { id: 119, nome: "Tunes", descricao: "Estilo retrô e divertido.", imagem: "tunes.jpeg", categoria: "Mini Festa na Mesa", catId: 4 },
+            { id: 120, nome: "Bob Esponja", descricao: "Mundo submerso do Bob.", imagem: "bob sponja.jpeg", categoria: "Mini Festa na Mesa", catId: 4 },
+            { id: 121, nome: "Kiko", descricao: "Personagem animado.", imagem: "kiko.jpeg", categoria: "Mini Festa na Mesa", catId: 4 },
+            { id: 122, nome: "Revelação", descricao: "Surpresa e emoção.", imagem: "revelacao.jpeg", categoria: "Mini Festa na Mesa", catId: 4 },
+            { id: 123, nome: "Arlequina", descricao: "Palhaço e circo.", imagem: "arlekina.jpeg", categoria: "Mini Festa na Mesa", catId: 4 },
+            { id: 124, nome: "Circo", descricao: "Mágica e alegria circense.", imagem: "circo.jpeg", categoria: "Mini Festa na Mesa", catId: 4 },
+            { id: 125, nome: "Tempo voa", descricao: "Relógios e nostalgia.", imagem: "tempovoa.jpeg", categoria: "Mini Festa na Mesa", catId: 4 },
+            
+            // Meus Trabalhos (id 126-139)
+            { id: 126, nome: "Batizado 1", descricao: "Celebração especial.", imagem: "bati1.jpeg", categoria: "Meus Trabalhos", catId: 5 },
+            { id: 127, nome: "Adulto 22", descricao: "Festa adulta moderna.", imagem: "adulto22.jpeg", categoria: "Meus Trabalhos", catId: 5 },
+            { id: 128, nome: "Motoqueiro", descricao: "Tema de motos.", imagem: "motoc.jpeg", categoria: "Meus Trabalhos", catId: 5 },
+            { id: 129, nome: "Bita 12", descricao: "Mundo Bita versão.", imagem: "bita12.jpeg", categoria: "Meus Trabalhos", catId: 5 },
+            { id: 130, nome: "Hello Kitty", descricao: "Gatinha fofa.", imagem: "hello kit.jpeg", categoria: "Meus Trabalhos", catId: 5 },
+            { id: 131, nome: "Jardim", descricao: "Flores e natureza.", imagem: "jardim.jpeg", categoria: "Meus Trabalhos", catId: 5 },
+            { id: 132, nome: "Flores", descricao: "Romântico e delicado.", imagem: "flores.jpeg", categoria: "Meus Trabalhos", catId: 5 },
+            { id: 133, nome: "Anjo", descricao: "Tema celestial.", imagem: "anjo.jpeg", categoria: "Meus Trabalhos", catId: 5 },
+            { id: 134, nome: "Adulto Homem", descricao: "Festa masculina.", imagem: "adultohomem.jpeg", categoria: "Meus Trabalhos", catId: 5 },
+            { id: 135, nome: "Ursinho Pool", descricao: "Piscina com ursinhos.", imagem: "ursinhopool.jpeg", categoria: "Meus Trabalhos", catId: 5 },
+            { id: 136, nome: "Batizado Luxo", descricao: "Cerimônia elegante.", imagem: "batizadoluxo.jpeg", categoria: "Meus Trabalhos", catId: 5 },
+            { id: 137, nome: "Batizado Adulto", descricao: "Batizado de adulto.", imagem: "batiadulto.jpeg", categoria: "Meus Trabalhos", catId: 5 },
+            { id: 138, nome: "Batizado 33", descricao: "Celebração completa.", imagem: "bati33.jpeg", categoria: "Meus Trabalhos", catId: 5 },
+            { id: 139, nome: "15 Anos Azul", descricao: "Debutante azul.", imagem: "15anosazul.jpeg", categoria: "Meus Trabalhos", catId: 5 }
         ];
 
+        // Agrupar produtos por categoria para manter a mesma estrutura visual
+        function agruparPorCategoria() {
+            const grupos = new Map();
+            produtosIndividuais.forEach(prod => {
+                if (!grupos.has(prod.catId)) {
+                    grupos.set(prod.catId, {
+                        id: prod.catId,
+                        nome: prod.categoria,
+                        descricao: obterDescricaoCategoria(prod.catId),
+                        produtos: []
+                    });
+                }
+                grupos.get(prod.catId).produtos.push(prod);
+            });
+            return Array.from(grupos.values());
+        }
+
+        function obterDescricaoCategoria(catId) {
+            const descs = {
+                1: "Sofisticação e identidade visual marcante.",
+                2: "Aventura e diversão com estilo.",
+                3: "Encantamento e delicadeza em cada detalhe.",
+                4: "Decorar não é sobre encher espaços, e sobre dar vida os sonhos de alguem.",
+                5: "Decoração personalizada; Cada detalhe conta uma história"
+            };
+            return descs[catId] || "";
+        }
+
+        const temas = agruparPorCategoria();
         let carrinho = []; // cada item: { id, nome, descricao }
 
-        // Funções do carrinho
+        // Funções do carrinho (idênticas às originais, mas agora usando produto.id)
         function atualizarCarrinhoUI() {
             const container = document.getElementById('cartItemsContainer');
             const countSpan = document.getElementById('cartCount');
@@ -900,7 +967,7 @@
             
             if (!container) return;
             if (carrinho.length === 0) {
-                container.innerHTML = '<p style="text-align:center; padding:20px;">🛍️ Nenhum tema selecionado ainda.<br>Clique em uma imagem e escolha o tema.</p>';
+                container.innerHTML = '<p style="text-align:center; padding:20px;">🛍️ Nenhum produto selecionado ainda.<br>Clique em uma imagem e escolha o tema.</p>';
                 countSpan.innerText = '0';
                 if (continuarBtn) continuarBtn.disabled = true;
                 return;
@@ -914,7 +981,7 @@
                 div.className = 'cart-item';
                 div.innerHTML = `
                     <div class="cart-item-info">
-                        <h4>🎨 Tema #${item.id} - ${item.nome}</h4>
+                        <h4>🎨 Produto #${item.id} - ${item.nome}</h4>
                         <small>${item.descricao.substring(0, 70)}</small>
                     </div>
                     <button class="remove-item" data-index="${idx}"><i class="fas fa-trash-alt"></i></button>
@@ -926,7 +993,7 @@
                     const index = parseInt(btn.getAttribute('data-index'));
                     carrinho.splice(index, 1);
                     atualizarCarrinhoUI();
-                    exibirToast(`Tema removido do carrinho`);
+                    exibirToast(`Produto removido do carrinho`);
                     resetarFooterPadrao();
                 });
             });
@@ -942,14 +1009,14 @@
             setTimeout(() => newToast.remove(), 2500);
         }
 
-        function addAoCarrinho(id, nomeTema, descTema) {
+        function addAoCarrinho(id, nomeProd, descProd) {
             if (carrinho.some(item => item.id === id)) {
-                exibirToast(`⚠️ Tema #${id} - "${nomeTema}" já está no carrinho!`);
+                exibirToast(`⚠️ Produto #${id} - "${nomeProd}" já está no carrinho!`);
                 return false;
             }
-            carrinho.push({ id: id, nome: nomeTema, descricao: descTema });
+            carrinho.push({ id: id, nome: nomeProd, descricao: descProd });
             atualizarCarrinhoUI();
-            exibirToast(`✅ Tema #${id} - "${nomeTema}" adicionado ao carrinho!`);
+            exibirToast(`✅ Produto #${id} - "${nomeProd}" adicionado ao carrinho!`);
             return true;
         }
 
@@ -965,7 +1032,7 @@
 
         function abrirFormularioCheckout() {
             if(carrinho.length === 0) {
-                exibirToast("Seu carrinho está vazio. Adicione temas primeiro!");
+                exibirToast("Seu carrinho está vazio. Adicione produtos primeiro!");
                 return;
             }
             const footer = document.getElementById('cartFooter');
@@ -998,22 +1065,20 @@
                 return;
             }
             if(carrinho.length === 0) {
-                exibirToast("Carrinho vazio, adicione temas.");
+                exibirToast("Carrinho vazio, adicione produtos.");
                 return;
             }
             
-            // Lista profissional dos temas selecionados (como se fossem as imagens escolhidas)
             let itensDetalhados = carrinho.map((item, i) => {
-                return `${i+1}️⃣ *TEMA #${item.id} - ${item.nome}*\n   📝 ${item.descricao.substring(0, 80)}`;
+                return `${i+1}️⃣ *PRODUTO #${item.id}* - ${item.nome}\n   📝 ${item.descricao.substring(0, 80)}`;
             }).join('\n\n');
             
-            let mensagem = `🛍️ *PEDIDO RITHY-DECOR* 🛍️%0A%0A✨ *TEMAS SELECIONADOS PELO CLIENTE:*%0A${itensDetalhados}%0A%0A👤 *CLIENTE:* ${nome}%0A📍 *ENDEREÇO:* ${endereco}%0A📞 *TELEFONE:* ${telefone}%0A💳 *PAGAMENTO:* ${pagamento}%0A%0A🌟 Aguardo confirmação de disponibilidade e valores. Obrigado!`;
+            let mensagem = `🛍️ *PEDIDO RITHY-DECOR* 🛍️%0A%0A✨ *PRODUTOS SELECIONADOS PELO CLIENTE:*%0A${itensDetalhados}%0A%0A👤 *CLIENTE:* ${nome}%0A📍 *ENDEREÇO:* ${endereco}%0A📞 *TELEFONE:* ${telefone}%0A💳 *PAGAMENTO:* ${pagamento}%0A%0A🌟 Aguardo confirmação de disponibilidade e valores. Obrigado!`;
             
             let numeroWhats = "5587991956088";
             let url = `https://wa.me/${numeroWhats}?text=${mensagem}`;
             window.open(url, '_blank');
             
-            // Limpar carrinho após envio
             carrinho = [];
             atualizarCarrinhoUI();
             resetarFooterPadrao();
@@ -1021,7 +1086,7 @@
             exibirToast("✨ Pedido enviado! Em breve receberá retorno.");
         }
 
-        // Galeria e modal com botão selecionar
+        // Carregar galeria com miniaturas individuais (cada imagem é um produto)
         function carregarGaleria() {
             const container = document.getElementById('galeriaContainer');
             container.innerHTML = '';
@@ -1031,20 +1096,23 @@
                 const infoDiv = document.createElement('div');
                 infoDiv.className = 'info-tema';
                 infoDiv.innerHTML = `
-                    <div class="badge-numero">TEMA #${tema.id}</div>
+                    <div class="badge-numero">CATEGORIA #${tema.id}</div>
                     <h3>${tema.nome}</h3>
                     <p>${tema.descricao}</p>
                 `;
                 card.appendChild(infoDiv);
                 const miniaturasDiv = document.createElement('div');
                 miniaturasDiv.className = 'miniaturas';
-                tema.imagens.forEach(imgSrc => {
+                tema.produtos.forEach(produto => {
                     const img = document.createElement('img');
-                    img.src = imgSrc;
-                    img.alt = tema.nome;
+                    img.src = produto.imagem;
+                    img.alt = produto.nome;
+                    // Adiciona atributos data-id e data-nome diretamente na imagem (ou no container)
+                    img.setAttribute('data-id', produto.id);
+                    img.setAttribute('data-nome', produto.nome);
                     img.onclick = (e) => {
                         e.stopPropagation();
-                        abrirModalComTema(imgSrc, tema.id, tema.nome, tema.descricao);
+                        abrirModalComProduto(produto.imagem, produto.id, produto.nome, produto.descricao);
                     };
                     miniaturasDiv.appendChild(img);
                 });
@@ -1053,16 +1121,16 @@
             });
         }
 
-        function abrirModalComTema(imgSrc, id, themeName, themeDesc) {
+        function abrirModalComProduto(imgSrc, id, nomeProd, descProd) {
             const modal = document.getElementById('modal');
             const modalImg = document.getElementById('modal-img');
             const modalFooter = document.getElementById('modalFooter');
             modalImg.src = imgSrc;
             modalFooter.innerHTML = `
-                <div style="margin-bottom: 8px;"><strong style="background:#f06292; padding:4px 12px; border-radius:40px; color:white;">TEMA #${id}</strong></div>
-                <h3 style="color:#ad1457;">${themeName}</h3>
-                <p style="color:#5a2e40;">${themeDesc}</p>
-                <button class="btn-select-modal" id="selectThemeBtn"><i class="fas fa-cart-plus"></i> Selecionar este tema</button>
+                <div style="margin-bottom: 8px;"><strong style="background:#f06292; padding:4px 12px; border-radius:40px; color:white;">PRODUTO #${id}</strong></div>
+                <h3 style="color:#ad1457;">${nomeProd}</h3>
+                <p style="color:#5a2e40;">${descProd}</p>
+                <button class="btn-select-modal" id="selectThemeBtn"><i class="fas fa-cart-plus"></i> Selecionar este produto (ID ${id})</button>
             `;
             modal.style.display = 'flex';
             const selectBtn = document.getElementById('selectThemeBtn');
@@ -1070,7 +1138,7 @@
                 const newBtn = selectBtn.cloneNode(true);
                 selectBtn.parentNode.replaceChild(newBtn, selectBtn);
                 newBtn.addEventListener('click', () => {
-                    addAoCarrinho(id, themeName, themeDesc);
+                    addAoCarrinho(id, nomeProd, descProd);
                     fecharModal();
                 });
             }
